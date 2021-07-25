@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="getAll">GET ALL</button>
+<script >
+    const getAllBtn = document.getElementById('getAll');
+    getAllBtn.onclick = function (){
+        const allItems = localStorage.getItem('storage');
+        if(allItemsJSON){
+            return
+        }
+        const items = JSON.parse(allItemsJSON);
+        for (const item of items) {
+            const itemDiv = document.createElement('div');
+            const button = document.createElement('button');
+            button.innerHTML = 'DELETE';
+            button.onclick = function (ev){
+                const divToRemove = ev.path[1];
+                const id = itemDiv.innerText.split(')')[0];
+                const indexToRemove = items.findIndex(function (item){
+                    return +item.id === +id;
+                })
+                items.splice(indexToRemove, 1);
+                localStorage.setItem('storage',JSON.stringify(items));
+                divToRemove.innerHTML = '';
+            }
+            itemDiv.innerText = `${item.id}) NAME: ${item.name}; PRICE: ${item.price}`;
+            itemDiv.appendChild(button);
+            document.body.appendChild(itemDiv);
+
+        }
+    }
+</script>
+</body>
+</html>
