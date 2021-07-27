@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Lesson 5 Class Work</title>
 </head>
 <body>
-<script src="l5cl.js"></script>
+
 <h1 id="main_header">This is page for task2</h1>
 <ul>
     <li class="linkList listElement1"><a href="#">link1</a></li>
@@ -20,3 +20,198 @@
         eligendi eum eveniet facere inventore ipsa minus pariatur repellendus sequi sit veniam voluptatum.
         Fugit,
         soluta?</p>
+</div>
+<script>
+    // // Взяти файл template_2.html та працювати в ньому
+    // // 1) Напишіть код, який :
+    // // a) змінює колір тексту елемнту з ід main_header на назву групи в якій ви вчитесь (mon-year)
+    //
+    let headerElement = document.getElementById('main_header');
+        headerElement.style.color = 'green';
+        headerElement.innerText = 'mon-year';
+
+    // // b) робить шириниу елементу ul 400px
+    //
+    let ulElement = document.getElementsByTagName('ul');
+    for (const ulElementElement of ulElement) {
+        ulElementElement.style.width = '400px';
+    }
+    // // c) робить шириниу всіх елементів з класом linkList шириною 50%
+    //
+    let linkListElement = document.getElementsByClassName('LinkList');
+    for (const linkListElementElement of linkListElement) {
+        linkListElementElement.style.width = '50%';
+    }
+    // // d) отримує текст який зберігається в елементі з класом listElement2
+    //
+    let listElement = document.getElementsByClassName('ListElement2');
+    //
+    // // e) отримує всі елементи li та змінює ім колір фону на сірий
+    //
+    let liElement = document.getElementsByTagName('li');
+    for (const liElementElement of liElement) {
+        liElementElement.style.backgroundColor = 'silver';
+    }
+    // // f) отримує всі елементи 'a' та додає їм клас anchor
+    //
+    let aElement = document.getElementsByTagName('a');
+    for (const aElementElement of aElement) {
+        aElementElement.classList.add('anchor');
+    }
+    // // g) отримує всі елементи 'a' та у випадку, якщо текстовий контен елементу дорівнює link3, змінює йому розмір тексту на 40 пікселів
+    //
+            for (const aElementElement of aElement) {
+                if (aElementElement.innerText === 'link3') {
+                    aElementElement.style.fontsize = '40px';
+                }
+            }
+                // // h) отримує всі елементи 'a' та додає їм клас element_XXX. Де XXX - текстовий контент елементу a
+                //
+                aElement = document.getElementsByTagName('a');
+                for (const aElementElement of aElement) {
+                    aElementElement.classList.add(`element_${aElementElement.innerText}`);
+                }
+                // // i) отримує всі елементи 'sub-header' та змінює колір фону. Фон отримати з prompt()
+                //
+                let subElement = document.getElementsByClassName('sub-header');
+                for (const subElementElement of subElement) {
+                    // subElementElement.style.backgroundColor = prompt('Введіть колір фону');
+                }
+
+                //
+                // // j) отримує всі елементи 'sub-header' та змінює колір тексту у видаку якщо текст елемнту = content 2 segment . Колір отримати з prompt()
+                //
+                for (const subElementElement of subElement) {
+                    if (subElementElement.innerText === 'content 1 segment') {
+                        // subElementElement.style.color = prompt('Введіть колір тексту');
+                    }
+                }
+
+                // // k) отримує елемент з класом content_1 та заміняє  в ньому тест на довільний. Текст отримати з prompt()
+                //
+                let contentElement = document.getElementsByClassName('content_1');
+                for (const contentElementElement of contentElement) {
+                    // contentElementElement.innerText = prompt('Введіть текст');
+                }
+
+                //
+                // // l) отримати елементи p та змінити їм padding на 20px
+                //
+                let pElement = document.getElementsByTagName('p');
+                for (const pElementElement of pElement) {
+                    pElementElement.style.padding = '20px';
+                }
+
+                //
+                // // m) отримати елементи з класом text2 та змінити їм текст на назву групи (mon-year)
+                // //
+                let textElement = document.getElementsByClassName('text1');
+                for (const textElementElement of textElement) {
+                    textElementElement.innerText = 'mon-year';
+                }
+</script>
+
+<form name="loginForm" id="formLoginForm">
+    <input type="text" name="login">
+    <input type="submit" name="action" value="ok">
+</form>
+<a class="a2Element" href='index2.html'>Name</a>
+
+<script >
+    // // 2. Створити форму з інпутом для введення ім'я, та action="index2.html".
+    // // При відправці данних з форми, зберігати ім'я в localstorage, та переходити на index2.html.
+    // // На index2.html виводити записане в localstorage ім'я в div
+    // //
+    let loginForm = document.forms.loginForm;
+    const login = loginForm.login;
+    const action = loginForm.action;
+let a2Element = document.getElementsByClassName('a2Element');
+   action.onclick = function (ev){
+      action.value = a2Element.value;
+       localStorage.setItem('login', ev.target.value);
+    }
+// loginForm.addEventListener('input',function (){
+//     target.innerText = this.value;
+// });
+//     loginForm.addEventListener('input',function () {
+//         localStorage.setItem('login', ev.target.value);
+//     });
+
+let boxDiv = document.createElement('div');
+   localStorage.getItem('login');
+    document.getElementsByClassName('box');
+    boxDiv.style.backgroundColor = 'red';
+       document.body.appendChild(boxDiv);
+
+    // let storage1 = [];
+    // const storage1JSON = LocalStorage.getItem('storage1');
+    // if(storage1JSON){
+    //     storage1 = JSON.parse(storage1JSON);
+    // }
+    // storage1.push({login: login.value});
+    // LocalStorage.setItem('storage1',JSON.stringify(storage1));
+    // login.oninput = function (ev){
+    //     localStorage.setItem('name',ev.target.value)
+    // }
+    // let inputs = document.getElementsByTagName('input');
+    // for (const input of inputs) {
+    //     input.oninput = function (ev){
+    //         console.log(ev.target.value);
+    //     }
+    // }
+    // localStorage.setItem('name', JSON.stringify(login));
+</script>
+
+<!--// // 3. Імітуємо наповнення інтернет магазину товарами :-->
+<!--// //     Створити форму з наступними полями :-->
+<!--// //     - назва товару-->
+<!--// // - кількість товару-->
+<!--// // - ціна товару-->
+<!--// // - картинка товару (посилання з інтернету)-->
+<!--// // Зберігати товари в масив в локалсорадж. При збережені товару з форми, action не повинно відбуватись.-->
+<!--// //     створити елемент <a href='list.html'> На сторінку товарів</a>, та list.html, при переході на який відобразити на сторінці всі товари.-->
+<!--// // На сторінці  list.html побудувати кнопку яка видаляє всі товари з корзини та локалстораджа.-->
+<!--// //-->
+<!--// //-->
+<!--// //     ДОДАТКОВО-->
+<!--// // До кожного товару додати кнопку, при кліку на яку з лс видаляється конкретний обраний  товар-->
+
+<form name="ItemForm">
+    <input type="text" name="title" value="назва товару">
+    <input type="text" name="number"value="кількість товару">
+    <input type="text" name="price" value="ціна товару">
+    <input type="image" name="image" value="картинка товару">
+    <input type="submit" name="save">
+</form>
+
+<a href='list.html'>На сторінку товарів</a>
+
+<script >
+    const form = document.forms.itemForm;
+    const title = form.title;
+    const price = form.price;
+    const number = form.number;
+    const image = form.image;
+    const save = form.save;
+
+    save.onclick = function (ev) {
+        ev.preventDefault();
+
+        let storage = [];
+        const item = {title, number,price,image};
+        const storageJSON = localStorage.getItem('storage');
+        if (storageJSON) {
+            storage = JSON.parse(storageJSON);
+        }
+        storage.push({
+            name: title.value,
+            number: number.value,
+            price:price.value,
+            image: image.value,
+            id: storage.length + 1});
+
+        localStorage.setItem('storage',JSON.stringify(storage));
+    }
+</script>
+</body>
+</html>
