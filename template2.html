@@ -62,7 +62,7 @@
     //
             for (const aElementElement of aElement) {
                 if (aElementElement.innerText === 'link3') {
-                    aElementElement.style.fontsize = '40px';
+                    aElementElement.style.fontSize = '40px';
                 }
             }
                 // // h) отримує всі елементи 'a' та додає їм клас element_XXX. Де XXX - текстовий контент елементу a
@@ -111,55 +111,25 @@
                 }
 </script>
 
-<form name="loginForm" id="formLoginForm">
+<!--// // 2. Створити форму з інпутом для введення ім'я, та action="index2.html".-->
+<!--// // При відправці данних з форми, зберігати ім'я в localstorage, та переходити на index2.html.-->
+<!--// // На index2.html виводити записане в localstorage ім'я в div-->
+<!--// //-->
+<form name="loginForm" id="formLoginForm"action="index2.html">
     <input type="text" name="login">
     <input type="submit" name="action" value="ok">
 </form>
-<a class="a2Element" href='index2.html'>Name</a>
+<a href='index2.html'></a>
 
 <script >
-    // // 2. Створити форму з інпутом для введення ім'я, та action="index2.html".
-    // // При відправці данних з форми, зберігати ім'я в localstorage, та переходити на index2.html.
-    // // На index2.html виводити записане в localstorage ім'я в div
-    // //
+
     let loginForm = document.forms.loginForm;
     const login = loginForm.login;
     const action = loginForm.action;
-let a2Element = document.getElementsByClassName('a2Element');
-   action.onclick = function (ev){
-      action.value = a2Element.value;
-       localStorage.setItem('login', ev.target.value);
+   action.onclick = () =>{
+       localStorage.setItem('login', JSON.stringify({login: login.value}));
     }
-// loginForm.addEventListener('input',function (){
-//     target.innerText = this.value;
-// });
-//     loginForm.addEventListener('input',function () {
-//         localStorage.setItem('login', ev.target.value);
-//     });
 
-let boxDiv = document.createElement('div');
-   localStorage.getItem('login');
-    document.getElementsByClassName('box');
-    boxDiv.style.backgroundColor = 'red';
-       document.body.appendChild(boxDiv);
-
-    // let storage1 = [];
-    // const storage1JSON = LocalStorage.getItem('storage1');
-    // if(storage1JSON){
-    //     storage1 = JSON.parse(storage1JSON);
-    // }
-    // storage1.push({login: login.value});
-    // LocalStorage.setItem('storage1',JSON.stringify(storage1));
-    // login.oninput = function (ev){
-    //     localStorage.setItem('name',ev.target.value)
-    // }
-    // let inputs = document.getElementsByTagName('input');
-    // for (const input of inputs) {
-    //     input.oninput = function (ev){
-    //         console.log(ev.target.value);
-    //     }
-    // }
-    // localStorage.setItem('name', JSON.stringify(login));
 </script>
 
 <!--// // 3. Імітуємо наповнення інтернет магазину товарами :-->
@@ -187,9 +157,9 @@ let boxDiv = document.createElement('div');
 <a href='list.html'>На сторінку товарів</a>
 
 <script >
-    const form = document.forms.itemForm;
-    const title = form.title;
-    const price = form.price;
+   const form = document.forms.itemForm;
+  const title = form.title;
+   const price = form.price;
     const number = form.number;
     const image = form.image;
     const save = form.save;
@@ -197,21 +167,21 @@ let boxDiv = document.createElement('div');
     save.onclick = function (ev) {
         ev.preventDefault();
 
-        let storage = [];
-        const item = {title, number,price,image};
+       let storage = [];
+       const item = {title, number,price,image};
         const storageJSON = localStorage.getItem('storage');
         if (storageJSON) {
             storage = JSON.parse(storageJSON);
-        }
+       }
         storage.push({
             name: title.value,
             number: number.value,
-            price:price.value,
+           price:price.value,
             image: image.value,
-            id: storage.length + 1});
+           id: storage.length + 1});
 
-        localStorage.setItem('storage',JSON.stringify(storage));
-    }
+      localStorage.setItem('storage',JSON.stringify(storage));
+   }
 </script>
 </body>
 </html>

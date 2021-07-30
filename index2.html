@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Lesson 5 Class Work</title>
 </head>
 <body>
-<div class="box">
-
-</div>
+<script >
+       let boxDiv = document.createElement('div');
+   const boxJSON = JSON.parse( localStorage.getItem('login'));
+       boxDiv.innerText = `Login: ${boxJSON.login}`;
+    document.body.append(boxDiv);
+</script>
 </body>
 </html>
